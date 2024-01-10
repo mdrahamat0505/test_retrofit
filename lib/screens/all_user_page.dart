@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_app/di/interjection_service.dart';
-import 'package:test_app/log_in/bloc/login_bloc.dart';
+import 'package:test_app/logIn/bloc/login_bloc.dart';
 import 'package:test_app/network/api_client.dart';
 import 'package:test_app/screens/user.dart';
 
@@ -24,12 +24,15 @@ class _AllUserPageState extends State<AllUserPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('All Users'),
+        title: const Text('All Users',  style: TextStyle(
+          fontSize: 16.0,
+          fontWeight: FontWeight.bold,
+        ),),
       ),
       body: BlocBuilder<LoginBloc, LoginState>(
         buildWhen: (previous, current) => current.status != previous.status,
         builder: (context, state) {
-          if (state.users.isNotEmpty) {
+          if (state.users != null && state.users != []) {
             return Padding(
               padding: const EdgeInsets.all(10.0),
               child: Center(

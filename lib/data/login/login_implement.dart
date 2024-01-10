@@ -1,8 +1,8 @@
-import 'package:test_app/log_in/base_response.dart';
+import 'package:test_app/logIn/base_response.dart';
 import 'package:test_app/network/api_client.dart';
 import 'package:test_app/services/local_storage.dart';
 
-import '../../log_in/repository/login_repository.dart';
+import '../../logIn/repository/login_repository.dart';
 
 class UserRepositoryImpl implements LoginRepository {
   UserRepositoryImpl({

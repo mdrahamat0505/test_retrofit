@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_app/log_in/bloc/login_bloc.dart';
+import 'package:test_app/logIn/bloc/login_bloc.dart';
 
 import 'routes.dart';
 import 'utils/helpers/nevigation_helper.dart';

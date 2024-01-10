@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_app/log_in/bloc/login_bloc.dart';
+import 'package:test_app/logIn/bloc/login_bloc.dart';
 import 'package:test_app/models/all_user_data.dart';
 import 'package:test_app/widgets/custom_card.dart';
 import 'package:test_app/widgets/custom_image.dart';

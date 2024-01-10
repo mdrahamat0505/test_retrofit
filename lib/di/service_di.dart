@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:test_app/di/interjection_service.dart';
-import 'package:test_app/log_in/use_case/get_login_use_case.dart';
+import 'package:test_app/logIn/use_case/get_login_use_case.dart';
 import 'package:test_app/network/api_client.dart';
 import 'package:test_app/services/local_storage.dart';
 import 'package:test_app/services/local_storage_imple.dart';
