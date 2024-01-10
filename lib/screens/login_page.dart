@@ -20,7 +20,6 @@ import 'package:test_app/values/app_routes.dart';
 import 'package:test_app/values/app_strings.dart';
 import 'package:test_app/values/app_theme.dart';
 
-
 import 'package:dio/dio.dart';
 
 class LoginPage extends StatefulWidget {
@@ -56,8 +55,7 @@ class _LoginPageState extends State<LoginPage> {
 
     if (email.isEmpty && password.isEmpty) return;
 
-    if (AppRegex.emailRegex.hasMatch(email) &&
-        password.isNotEmpty) {
+    if (AppRegex.emailRegex.hasMatch(email) && password.isNotEmpty) {
       fieldValidNotifier.value = true;
     } else {
       fieldValidNotifier.value = false;
@@ -78,7 +76,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: ListView(
         padding: EdgeInsets.zero,
@@ -158,28 +155,32 @@ class _LoginPageState extends State<LoginPage> {
                             ? () async {
                                 final _restClient = di.get<RestClient>();
 
-                                var map = {"email": emailController.text, "password": passwordController.text};
-                            var jsonData =  await  _restClient.login(map);
+                                var map = {
+                                  "email": emailController.text,
+                                  "password": passwordController.text
+                                };
+                                var jsonData = await _restClient.login(map);
 
-                            if(jsonData != null){
-                              UserData userData = UserData.fromJson(jsonData);
+                                if (jsonData != null) {
+                                  UserData userData =
+                                      UserData.fromJson(jsonData);
 
-                              final _localStorage = di.get<LocalStorage>();
-                              _localStorage.setToken('${userData.data?.Token}');
+                                  final _localStorage = di.get<LocalStorage>();
+                                  _localStorage
+                                      .setToken('${userData.data?.Token}');
 
+                                  NavigationHelper.pushReplacementNamed(
+                                    AppRoutes.allUser,
+                                  );
 
-                                NavigationHelper.pushReplacementNamed(
-                                  AppRoutes.allUser,
-                                );
+                                  SnackbarHelper.showSnackBar(
+                                    AppStrings.loggedIn,
+                                  );
 
-                              SnackbarHelper.showSnackBar(
-                                AppStrings.loggedIn,
-                              );
-
-                              log('True');
-                            }else{
-                              log('false');
-                            }
+                                  log('True');
+                                } else {
+                                  log('false');
+                                }
                                 //GetLoginUseCase? ise
 
                                 // LoginRepository? repository;
@@ -189,9 +190,6 @@ class _LoginPageState extends State<LoginPage> {
                                 // final response = await apiService?.call(map: map);
                                 //
                                 // repository?.getLogin(map: map);
-
-
-
 
                                 // emailController.clear();
                                 // passwordController.clear();
@@ -206,7 +204,6 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -226,5 +223,4 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-
 }

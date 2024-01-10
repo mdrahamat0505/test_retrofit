@@ -8,9 +8,9 @@ class NavigationHelper {
   static GlobalKey<NavigatorState> get key => _key;
 
   static Future<T?>? pushNamed<T extends Object?>(
-      String routeName, {
-        Object? arguments,
-      }) {
+    String routeName, {
+    Object? arguments,
+  }) {
     return _key.currentState?.pushNamed<T?>(
       routeName,
       arguments: arguments,
@@ -18,9 +18,9 @@ class NavigationHelper {
   }
 
   static Future<T?>? pushReplacementNamed<T extends Object?>(
-      String routeName, {
-        Object? arguments,
-      }) {
+    String routeName, {
+    Object? arguments,
+  }) {
     return _key.currentState?.pushReplacementNamed(
       routeName,
       arguments: arguments,

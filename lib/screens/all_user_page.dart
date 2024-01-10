@@ -5,7 +5,6 @@ import 'package:test_app/log_in/bloc/login_bloc.dart';
 import 'package:test_app/network/api_client.dart';
 import 'package:test_app/screens/user.dart';
 
-
 class AllUserPage extends StatefulWidget {
   const AllUserPage({super.key});
 
@@ -14,33 +13,26 @@ class AllUserPage extends StatefulWidget {
 }
 
 class _AllUserPageState extends State<AllUserPage> {
-
-@override
+  @override
   void initState() {
-  context.read<LoginBloc>().add(GetLogin());
+    context.read<LoginBloc>().add(GetLogin());
     // TODO: implement initState
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-
-
-
-
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('All Users'),
       ),
       body: BlocBuilder<LoginBloc, LoginState>(
-        buildWhen: (previous, current) =>
-        current.status  != previous.status,
+        buildWhen: (previous, current) => current.status != previous.status,
         builder: (context, state) {
           if (state.users.isNotEmpty) {
             return Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Center(
+              padding: const EdgeInsets.all(10.0),
+              child: Center(
                 child: ListView.builder(
                   itemCount: state.users.length,
                   padding: const EdgeInsets.symmetric(
@@ -71,14 +63,16 @@ class _AllUserPageState extends State<AllUserPage> {
                     );
                   },
                 ),
-            ),
-          );
+              ),
+            );
           } else {
-            return const Center(child: SizedBox(child: Text('User not found'),));
+            return const Center(
+                child: SizedBox(
+              child: Text('User not found'),
+            ));
           }
         },
       ),
     );
   }
 }
-

@@ -1,4 +1,3 @@
-
 abstract class LocalStorage {
   String? getTheme();
 
@@ -12,7 +11,6 @@ abstract class LocalStorage {
   Future<void> setSession({required String token, required int userId});
 
   Future<void> removeSession();
-
 
   // Future<void> setTokenId({required String token, required int userId}) async {
   //   _sharedPref.write(_kTokenKey, token);

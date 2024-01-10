@@ -17,9 +17,6 @@ abstract class RestClient {
   @GET("users")
   Future<dynamic> getAllUser();
 
-
   // @POST("users/293788")
   // Future<dynamic> updateUser(@Body() Map<String, dynamic> map);
-
-
 }

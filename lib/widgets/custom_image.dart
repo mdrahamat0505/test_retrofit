@@ -38,6 +38,5 @@ class CustomImage extends StatelessWidget {
         },
       ),
     );
-
   }
 }

@@ -6,4 +6,3 @@ class LoginEvent extends Equatable {
 }
 
 class GetLogin extends LoginEvent {}
-

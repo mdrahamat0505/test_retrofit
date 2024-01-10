@@ -14,15 +14,8 @@ class UserRepositoryImpl implements LoginRepository {
   final RestClient _client;
   final LocalStorage _sharePref;
 
-
-
   @override
-  Future<BaseResponse> getLogin({required Map<String, dynamic> map}) async{
+  Future<BaseResponse> getLogin({required Map<String, dynamic> map}) async {
     return await _client.login(map);
   }
-
-
-
-
-
 }

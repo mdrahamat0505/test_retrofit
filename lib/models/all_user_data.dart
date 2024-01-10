@@ -1,7 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 part 'all_user_data.g.dart';
 
-
 @JsonSerializable()
 class AllUserData {
   int? page;
@@ -73,7 +72,6 @@ class Datum {
         createdat: createdat ?? this.createdat,
       );
 
-  factory Datum.fromJson(Map<String, dynamic> json) =>
-      _$DatumFromJson(json);
+  factory Datum.fromJson(Map<String, dynamic> json) => _$DatumFromJson(json);
   Map<String, dynamic> toJson() => _$DatumToJson(this);
 }

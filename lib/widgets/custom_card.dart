@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 class CustomCard extends StatelessWidget {
   const CustomCard(
       {Key? key,
-        this.borderRadius = 15.0,
-        required this.child,
-        this.onTap,
-        this.onLongPress,
-        this.padding,
-        this.backgroundColor,
-        this.margin,
-        this.borderWidth,
-        this.elevation = 0})
+      this.borderRadius = 15.0,
+      required this.child,
+      this.onTap,
+      this.onLongPress,
+      this.padding,
+      this.backgroundColor,
+      this.margin,
+      this.borderWidth,
+      this.elevation = 0})
       : super(key: key);
 
   final Widget child;

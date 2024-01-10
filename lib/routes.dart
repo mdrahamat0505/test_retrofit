@@ -28,7 +28,7 @@ class Routes {
       case AppRoutes.register:
         return getRoute(widget: const RegisterPage());
 
-        case AppRoutes.allUser:
+      case AppRoutes.allUser:
         return getRoute(widget: const AllUserPage());
 
       /// An invalid route. User shouldn't see this,

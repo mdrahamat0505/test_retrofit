@@ -5,7 +5,6 @@ import 'package:test_app/models/all_user_data.dart';
 import 'package:test_app/widgets/custom_card.dart';
 import 'package:test_app/widgets/custom_image.dart';
 
-
 class UserItem extends StatelessWidget {
   const UserItem({
     Key? key,
@@ -21,8 +20,7 @@ class UserItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocSelector<LoginBloc, LoginState, bool>(
-      selector: (state) =>
-      (state.status != state.status),
+      selector: (state) => (state.status != state.status),
       builder: (context, state) {
         return CustomCard(
           onTap: onTap,
@@ -33,16 +31,22 @@ class UserItem extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const SizedBox(height: 5,),
+              const SizedBox(
+                height: 5,
+              ),
               CustomImage(imageUrl: user.profilepicture ?? '', height: 60),
-              const SizedBox(height: 9,),
+              const SizedBox(
+                height: 9,
+              ),
               Text(
                 user.name ?? '',
                 textAlign: TextAlign.center,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
-              const SizedBox(height: 9,),
+              const SizedBox(
+                height: 9,
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Text(

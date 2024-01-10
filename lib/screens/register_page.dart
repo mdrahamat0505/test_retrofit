@@ -4,7 +4,6 @@ import 'package:test_app/network/api_client.dart';
 import 'package:test_app/utils/helpers/nevigation_helper.dart';
 import 'package:test_app/utils/helpers/snackbar_helper.dart';
 
-
 import '../components/app_text_form_field.dart';
 import '../utils/common_widgets/gradient_background.dart';
 
@@ -110,8 +109,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       return value!.isEmpty
                           ? AppStrings.pleaseEnterName
                           : value.length < 4
-                          ? AppStrings.invalidName
-                          : null;
+                              ? AppStrings.invalidName
+                              : null;
                     },
                     controller: nameController,
                   ),
@@ -125,8 +124,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       return value!.isEmpty
                           ? AppStrings.pleaseEnterEmailAddress
                           : AppConstants.emailRegex.hasMatch(value)
-                          ? null
-                          : AppStrings.invalidEmailAddress;
+                              ? null
+                              : AppStrings.invalidEmailAddress;
                     },
                   ),
                   ValueListenableBuilder<bool>(
@@ -143,8 +142,8 @@ class _RegisterPageState extends State<RegisterPage> {
                           return value!.isEmpty
                               ? AppStrings.pleaseEnterPassword
                               : AppConstants.passwordRegex.hasMatch(value)
-                              ? null
-                              : AppStrings.invalidPassword;
+                                  ? null
+                                  : AppStrings.invalidPassword;
                         },
                         suffixIcon: Focus(
                           /// If false,
@@ -158,7 +157,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           // descendantsAreTraversable: false,
                           child: IconButton(
                             onPressed: () =>
-                            passwordNotifier.value = !passwordObscure,
+                                passwordNotifier.value = !passwordObscure,
                             style: IconButton.styleFrom(
                               minimumSize: const Size.square(48),
                             ),
@@ -179,25 +178,29 @@ class _RegisterPageState extends State<RegisterPage> {
                       return FilledButton(
                         onPressed: isValid
                             ? () async {
-                          final _restClient = di.get<RestClient>();
+                                final _restClient = di.get<RestClient>();
 
-                          var map = {"name": nameController.text, "email": emailController.text, "password": passwordController.text};
-                          var loginup =  await  _restClient.register(map);
+                                var map = {
+                                  "name": nameController.text,
+                                  "email": emailController.text,
+                                  "password": passwordController.text
+                                };
+                                var loginup = await _restClient.register(map);
 
-                          if(loginup != null){
-                            NavigationHelper.pushReplacementNamed(
-                              AppRoutes.login,
-                            );
-                          }
+                                if (loginup != null) {
+                                  NavigationHelper.pushReplacementNamed(
+                                    AppRoutes.login,
+                                  );
+                                }
 
-                          SnackbarHelper.showSnackBar(
-                            AppStrings.registrationComplete,
-                          );
-                          // nameController.clear();
-                          // emailController.clear();
-                          // passwordController.clear();
-                         // confirmPasswordController.clear();
-                        }
+                                SnackbarHelper.showSnackBar(
+                                  AppStrings.registrationComplete,
+                                );
+                                // nameController.clear();
+                                // emailController.clear();
+                                // passwordController.clear();
+                                // confirmPasswordController.clear();
+                              }
                             : null,
                         child: const Text(AppStrings.register),
                       );
