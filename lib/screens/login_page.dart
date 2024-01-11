@@ -160,27 +160,33 @@ class _LoginPageState extends State<LoginPage> {
                                   "password": passwordController.text
                                 };
                                 var jsonData = await _restClient.login(map);
+                                UserData userData = UserData.fromJson(jsonData);
 
-                                if (jsonData != null) {
-                                  UserData userData =
-                                      UserData.fromJson(jsonData);
+                                try {
+                                  if (jsonData != null &&
+                                      userData.message == 'success') {
+                                    final _localStorage =
+                                        di.get<LocalStorage>();
+                                    _localStorage
+                                        .setToken('${userData.data?.Token}');
 
-                                  final _localStorage = di.get<LocalStorage>();
-                                  _localStorage
-                                      .setToken('${userData.data?.Token}');
+                                    NavigationHelper.pushReplacementNamed(
+                                      AppRoutes.allUser,
+                                    );
 
-                                  NavigationHelper.pushReplacementNamed(
-                                    AppRoutes.allUser,
-                                  );
+                                    SnackbarHelper.showSnackBar(
+                                      AppStrings.loggedIn,
+                                    );
 
-                                  SnackbarHelper.showSnackBar(
-                                    AppStrings.loggedIn,
-                                  );
+                                    log('True');
+                                  } else {
+                                    SnackbarHelper.showSnackBar(
+                                      AppStrings.invalidName1,
+                                    );
+                                    log('false');
+                                  }
+                                } catch (e) {}
 
-                                  log('True');
-                                } else {
-                                  log('false');
-                                }
                                 //GetLoginUseCase? ise
 
                                 // LoginRepository? repository;

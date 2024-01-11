@@ -24,10 +24,13 @@ class _AllUserPageState extends State<AllUserPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('All Users',  style: TextStyle(
-          fontSize: 16.0,
-          fontWeight: FontWeight.bold,
-        ),),
+        title: const Text(
+          'All Users',
+          style: TextStyle(
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: BlocBuilder<LoginBloc, LoginState>(
         buildWhen: (previous, current) => current.status != previous.status,

@@ -21,6 +21,7 @@ class AppStrings {
   static const String name = 'Name';
   static const String pleaseEnterName = 'Please, Enter Name';
   static const String invalidName = 'Invalid Name';
+  static const String invalidName1 = 'Invalid Username or Password';
 
   static const String email = 'Email';
   static const String pleaseEnterEmailAddress = 'Please, Enter Email Address';
